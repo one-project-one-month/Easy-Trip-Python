@@ -1,0 +1,26 @@
+{
+  "name": "easy-trip-python",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/one-project-one-month/Easy-Trip-Python.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/one-project-one-month/Easy-Trip-Python/issues"
+  },
+  "homepage": "https://github.com/one-project-one-month/Easy-Trip-Python#readme",
+  "dependencies": {
+    "@langchain/groq": "^0.2.2",
+    "dotenv": "^16.5.0",
+    "langchain": "^0.3.24"
+  }
+}
