@@ -1,9 +1,9 @@
 import { ChatGroq } from "@langchain/groq";
-
+import { ChatPromptTemplate } from "@langchain/core/prompts"
 import { config } from "dotenv";
 config();
 
-const llm = new ChatGroq({
+let llm = new ChatGroq({
   GROQ_API_KEY: process.env.GROQ_API_KEY,
   model: "llama-3.3-70b-versatile",
   temperature: 0,
@@ -11,12 +11,13 @@ const llm = new ChatGroq({
   maxRetries: 2,
 });
 
-const aiMsg = await llm.invoke([
-    {
-      role: "system",
-      content:
-        "You are a helpful assistant.",
-    },
-    { role: "user", content: "How to learn programming with only one language." },
-  ]);
-console.log(aiMsg['content']);
+let prompt_template = ChatPromptTemplate.fromMessages([
+  ['system',"You are a helpful assistant and you can manage what things we should bring when we go trips based on Location and Days."],
+  ['user', "What should I bring, I be going to {location} within {days}"]
+]);
+
+// console.log(await prompt_template.invoke({'location': 'bagan', "days": "5/10/2025 to 5/15/2025"}))
+
+let pipeline = prompt_template.pipe(llm)
+
+console.log(await pipeline.invoke({'location': "bagan", "days": "5/10/2025 to 5/15/2025"}));
