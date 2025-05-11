@@ -2,23 +2,27 @@ from dotenv import load_dotenv
 import os 
 from langchain.chat_models import init_chat_model
 from langchain_core.prompts import ChatPromptTemplate
+from langserve import add_routes
+from langchain_core.output_parsers import StrOutputParser
+from fastapi import FastAPI
+import uvicorn
 
 load_dotenv()
 
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
 
-model = init_chat_model("groq:llama3-70b-8192")
+model = init_chat_model("ollama:tinyllama:1.1b")
 
 prompt_template = ChatPromptTemplate.from_messages([
     ('system', 'You are a helpful assistant and you can manage what things we should bring when we go trips based on {{Location}} and {{Days}}.'),
     ('human', "What should I bring, I be going to {location} within {days}"
 )])
 
-#prompt_template.invoke({"location":"Bagan","days":"5/10/2025 to 5/15/2025"})
 
-generate_output = prompt_template | model 
+app = FastAPI(title="Thing You Should Bring API", version = "1.0")
 
-result = generate_output.invoke({"location":"ChaungThar","days":"5/10/2025 to 5/15/2025"})
+add_routes(app, prompt_template | model , path= "/things") 
 
-print(result.content)
+if __name__ == "__main__":
+    uvicorn.run(app, host="localhost", port=8000)
