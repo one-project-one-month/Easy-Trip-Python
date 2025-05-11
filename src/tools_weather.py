@@ -38,5 +38,5 @@ graph = workflow.compile()
 
 result = graph.invoke({'messages': "What should i bring if i want to travel Bagan in 5/11/2025 to 5/15/2025"})
 #print(result)
-print(result['messages'])
+print(result['messages'][-1].content)
 

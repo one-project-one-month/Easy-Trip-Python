@@ -3,7 +3,6 @@ import os
 from langchain.chat_models import init_chat_model
 from langchain_core.prompts import ChatPromptTemplate
 from langserve import add_routes
-from langchain_core.output_parsers import StrOutputParser
 from fastapi import FastAPI
 import uvicorn
 
@@ -12,13 +11,15 @@ load_dotenv()
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
 
-model = init_chat_model("ollama:tinyllama:1.1b")
+model = init_chat_model("groq:llama-3.3-70b-versatile")
+
+system = """
+Return only a JSON object with key "thingsYouShouldBring", whose values are relevant items a traveler should bring when going to a specific location for a specific number of days. Make the list detailed and adapted to the location and length of travel."""
 
 prompt_template = ChatPromptTemplate.from_messages([
-    ('system', 'You are a helpful assistant and you can manage what things we should bring when we go trips based on {{Location}} and {{Days}}.'),
-    ('human', "What should I bring, I be going to {location} within {days}"
-)])
-
+    ('system', system),
+    ("human", "Which things should we bring in order to go to {destination} with {group_type} within {start_day} to {end_day}"),
+])
 
 app = FastAPI(title="Thing You Should Bring API", version = "1.0")
 
