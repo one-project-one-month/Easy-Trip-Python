@@ -1,6 +1,6 @@
 # Easy-Trip-Python
 
-In order to test Thing You Should Bring api : [https://easy-trip-python.onrender.com/things/invoke](https://easy-trip-python-should-bring.onrender.com/things/invoke)
+In order to test Thing You Should Bring api : https://easy-trip-python-should-bring.onrender.com
 
 example input -> `{"input":{"destination":"ChaungTharBeach", "attendance_type": "Family", "start_day": "5/11/2025", "end_day": "15/11/2025", "total_budget": "100000"}}`
 
