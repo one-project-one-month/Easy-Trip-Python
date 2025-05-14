@@ -18,7 +18,7 @@ Return only a JSON object with key "thingsYouShouldBring", whose values are rele
 
 prompt_template = ChatPromptTemplate.from_messages([
     ('system', system),
-    ("human", "Which things should we bring in order to go to {destination} with {group_type} within {start_day} to {end_day}"),
+    ("human", "Which things should we bring in order to go to {destination} with {attendance_type} within {start_day} to {end_day} with {total_budget} MMK")
 ])
 
 app = FastAPI(title="Thing You Should Bring API", version = "1.0")

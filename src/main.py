@@ -15,13 +15,13 @@ Return only a JSON object with key "thingsYouShouldBring", whose values are rele
 
 prompt_template = ChatPromptTemplate.from_messages([
     ('system', system),
-    ("human", "Which things should we bring in order to go to {destination} with {group_type} within {start_day} to {end_day}")
+    ("human", "Which things should we bring in order to go to {destination} with {attendance_type} within {start_day} to {end_day} with {total_budget} MMK")
 ])
 
 #prompt_template.invoke({"location":"Bagan","days":"5/10/2025 to 5/15/2025"})
 
 generate_output = prompt_template | model 
 
-result = generate_output.invoke({"destination":"Yangon", "group_type": "Family", "start_day": "5/11/2025", 'end_day': '15/11/2025'})
+result = generate_output.invoke({"destination":"Yangon", "attendance_type": "Family", "start_day": "5/11/2025", 'end_day': '15/11/2025', "total_budget": "100000"})
 
 print(result.content)
