@@ -16,9 +16,10 @@ model = init_chat_model("groq:llama-3.3-70b-versatile")
 system = """
 Return only a JSON object with key "thingsYouShouldBring", whose values are relevant items a traveler should bring when going to a specific location for a specific number of days. Make the list detailed and adapted to the location and length of travel."""
 
+# {"input":{"input":"Explain with description why we should bring in order to go to ChaungTharBeach with Family within 5/15/2025 to 5/20/2025 with 1500000 MMK"}}
 prompt_template = ChatPromptTemplate.from_messages([
     ('system', system),
-    ("human", "Which things should we bring in order to go to {destination} with {attendance_type} within {start_day} to {end_day} with {total_budget} MMK")
+    ("human", "{input}")
 ])
 
 app = FastAPI(title="Thing You Should Bring API", version = "1.0")
