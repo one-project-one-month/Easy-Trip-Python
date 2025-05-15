@@ -19,8 +19,17 @@
   },
   "homepage": "https://github.com/one-project-one-month/Easy-Trip-Python#readme",
   "dependencies": {
+    "@langchain/core": "^0.3.55",
     "@langchain/groq": "^0.2.2",
     "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "install": "^0.13.0",
     "langchain": "^0.3.24"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.17",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }
