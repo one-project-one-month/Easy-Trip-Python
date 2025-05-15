@@ -123,7 +123,7 @@ prompt_template = ChatPromptTemplate.from_messages([
     ("human", "{input}")
 ])
 
-app = FastAPI(title="Thing You Should Bring API", version = "1.0")
+app = FastAPI(title="Trip Plan API", version = "1.0")
 
 add_routes(app, prompt_template | model , path= "/trip") 
 
