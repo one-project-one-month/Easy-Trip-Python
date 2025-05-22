@@ -12,7 +12,7 @@ Take the output with this format: ["output"]["content"]
 
 In order to test trip plan api : https://trip-plan-b6bq.onrender.com/trip/invoke
 
-- # Trip Planning for this user_input_destination with user_input_attendance_type within user_input_start_date to user_input_end_date with user_input_total_budget.
+- Trip Planning for this user_input_destination with user_input_attendance_type within user_input_start_date to user_input_end_date with user_input_total_budget.
   example input -> `{"input":{"input":"Trip Planning for this ChaungTharBeach with family within 5/15/2025 to 5/20/2025 with 1000000 MMK"}}`
 
 Take the output with this format: ["output"]["content"]
