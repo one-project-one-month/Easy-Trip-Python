@@ -1,6 +1,6 @@
 # Easy-Trip-Python
 
-In order to test Thing You Should Bring api : https://thing-we-should-bring.onrender.com/things/invoke
+In order to test Thing You Should Bring api : [https://thing-we-should-bring.onrender.com/things/invoke](https://latest-thing-you-should-bring.onrender.com/things/invoke)
 
 example input -> `{"input":{"input":"Explain with description why we should bring things in order to go to ChaungTharBeach with Family within 5/15/2025 to 5/20/2025 with 1500000 MMK"}}`
 
