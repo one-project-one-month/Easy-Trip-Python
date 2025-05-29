@@ -23,6 +23,7 @@ Return only a JSON object with key "thingsYouShouldBring", whose values are rele
 """
 
 # {"input":{"input":"Explain with description why we should bring in order to go to ChaungTharBeach with Family within 5/15/2025 to 5/20/2025 with 1500000 MMK"}}
+
 prompt_template = ChatPromptTemplate.from_messages([
     ('system', system),
     ("human", "{input}")
