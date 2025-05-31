@@ -14,7 +14,7 @@ os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
 model = init_chat_model("groq:llama-3.3-70b-versatile")
 
 system = """
-RETURN only a JSON object with key (Day are depends on the user start date and end date)
+RETURN ONLY JSON Object.
 {{
   "title": "",
   "description": "",
